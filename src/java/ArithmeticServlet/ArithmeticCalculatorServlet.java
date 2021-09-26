@@ -32,7 +32,9 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
         String firstNum = request.getParameter("firstNum");
         String secondNum = request.getParameter("secondNum");
         int result;
-
+        
+        request.setAttribute("firstNum", firstNum);
+        request.setAttribute("secondNum",secondNum);
         //Check if the input is null
         if (firstNum == null || firstNum.equals("") && secondNum == null || secondNum.equals("")) {
             request.setAttribute("result", "---");
@@ -59,27 +61,24 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
         try{
         int numberOne = Integer.parseInt(firstNum);
         int numberTwo = Integer.parseInt(secondNum);
+        
         if (request.getParameter("add") != null) {
             result = numberOne + numberTwo;
-        request.setAttribute("firstNum", firstNum);
-        request.setAttribute("secondNum",secondNum);
         request.setAttribute("result", result);
+        
         } else if (request.getParameter("subtract") != null) {
             result = numberOne - numberTwo;
-        request.setAttribute("firstNum", firstNum);
-        request.setAttribute("secondNum",secondNum);
         request.setAttribute("result", result);
+        
         } else if (request.getParameter("multiply") != null) {
             result = numberOne * numberTwo;
-        request.setAttribute("firstNum", firstNum);
-        request.setAttribute("secondNum",secondNum);
         request.setAttribute("result", result);
+        
         } else if (request.getParameter("modulus") != null) {
             result = numberOne % numberTwo;
-        request.setAttribute("firstNum", firstNum);
-        request.setAttribute("secondNum",secondNum);
         request.setAttribute("result", result);
         }
+        
         }catch (NumberFormatException ex) {
             ex.printStackTrace();
         }
