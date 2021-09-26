@@ -31,7 +31,6 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
         
         String firstNum = request.getParameter("firstNum");
         String secondNum = request.getParameter("secondNum");
-        String defaultValue = "---";
         int result;
 
         //Check if the input is null
