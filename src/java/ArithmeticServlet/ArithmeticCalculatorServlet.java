@@ -49,6 +49,7 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
                 request.setAttribute("result", "Invalid");
                 check = false;
         }
+        
         for(int i = 0; i<secondNum.length(); i++) {
             if(i==0 && secondNum.charAt(i) == '-')
                 continue;
