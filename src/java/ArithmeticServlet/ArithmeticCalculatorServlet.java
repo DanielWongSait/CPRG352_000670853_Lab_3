@@ -31,11 +31,12 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
         
         String firstNum = request.getParameter("firstNum");
         String secondNum = request.getParameter("secondNum");
+        String defaultValue = "---";
         int result;
-        
+
         //Check if the input is null
-        if (firstNum == null || firstNum.equals("") || secondNum == null || secondNum.equals("")) {
-            request.setAttribute("result", "Invalid");
+        if (firstNum == null || firstNum.equals("") && secondNum == null || secondNum.equals("")) {
+            request.setAttribute("result", "---");
         }
         
         //Check if input is a number
@@ -44,14 +45,14 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
             if(i==0 && firstNum.charAt(i) == '-')
                 continue;
             if(!Character.isDigit(firstNum.charAt(i)))
-                request.setAttribute("result", "---");
+                request.setAttribute("result", "Invalid");
                 check = false;
         }
         for(int i = 0; i<secondNum.length(); i++) {
             if(i==0 && secondNum.charAt(i) == '-')
                 continue;
             if(!Character.isDigit(secondNum.charAt(i)))
-                request.setAttribute("result", "---");
+                request.setAttribute("result", "Invalid");
                 check = false;
         }
         
