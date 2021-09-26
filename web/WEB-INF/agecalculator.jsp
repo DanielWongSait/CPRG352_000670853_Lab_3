@@ -31,8 +31,12 @@
         body input.submit {
             padding: 2px 15px;
             border-radius: 8px;
+            transition-duration: 0.4s;
         }
-        
+        .submit:hover {
+            background-color: #949494;
+            color: white;
+        }
     </style>
     <body>
         <div>
